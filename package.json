@@ -1,0 +1,59 @@
+{
+  "name": "protenus-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm install",
+    "actual:tests": "npx cypress run --browser chrome",
+    "cypress:open": "./node_modules/.bin/cypress open",
+    "test": "npm-run-all \"actual:tests -- {@}\" after:tests --continue-on-error --",
+    "after:tests": "node reporter/cucumber-html-reporter.js",
+    "generate-report": "node reporter/cucumber-html-reporter.js",
+    "cy:verify": "cypress verify",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js)\"",
+    "runOnChrome": "cypress run --browser chrome",
+    "cypress:run": "cypress run",
+    "cy:parallel": "cypress-parallel -d cypress/integration/ -t 2 -s test"
+  },
+  "devDependencies": {
+    "cy-verify-downloads": "^0.1.11",
+    "cypress": "^12.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-wait-until": "^1.7.2",
+    "cypress-xpath": "^1.8.0",
+    "eslint-plugin-json-format": "2.0.1",
+    "faker": "^4.1.0",
+    "gmail-tester": "^1.3.8",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chai-dom": "^1.11.0",
+    "cypress-parallel": "^0.12.0",
+    "cypress-real-events": "^1.7.1",
+    "dotenv": "^16.0.3",
+    "iframe": "^1.0.0",
+    "install": "^0.13.0",
+    "moment": "^2.29.1",
+    "multiple-cucumber-html-reporter": "^1.21.4",
+    "nodemailer": "^6.9.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/support/step_definitions",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}

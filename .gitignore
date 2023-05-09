@@ -1,0 +1,12 @@
+node_modules
+package-lock.json
+parallel-weights.json
+cypress/screenshots
+cypress/videos
+cypress/results/
+cypress/cucumber-json/
+reports/
+.DS_STORE
+gmail-utils/credentials.json
+gmail-utils/token.json
+cypress/downloads
