@@ -1,5 +1,5 @@
 module.exports = {
   getbaseUrl: function () {
-    return "http://localhost:3002/#/";
+    return "https://staging-dot-zensense108.appspot.com/dashboard";
   },
 };
